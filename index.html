@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+  <style>
+     h1#wasom{
+       color: deeppink;
+       font-size: 50px;
+       text-align: center;
+     }
+     h2#payment{
+       color: deeppink;
+       font-size: 30px;
+       margin-top: -50px;
+       margin-left: 36px;
+     }
+     h4#dizer{
+       color: deeppink;
+       font-weigth: bold;
+       font-size: 30px;
+     }
+     h4#artist{
+       color: white
+     }
+     body{
+       background: black;
+       font-family: Arial;
+       text-align: center;
+     }
+  </style>
+</head>
+<body>
+  <br><br>
+  <h1 id="wasom">Wasom Upfy</h1>
+  <h2 id="payment">Payments</h2>
+  <h4 id="dizer">ARTIST - 5,00$</h4>
+  <div style="text-align: center;" id="paypal-button-container-P-1P989696JM603900JM2ZEHCI"></div>
+  <script src="https://www.paypal.com/sdk/js?client-id=AdKKDLGDnoB7vnEo17cBOCosWpQMUGJkKXfc3GHf3v-pzBfNxT6eJyHPQ7gK6MzLzOlJi3NyySDR3waa&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+  <script>
+   paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-1P989696JM603900JM2ZEHCI'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-1P989696JM603900JM2ZEHCI'); // Renders the PayPal button
+</script>
+</body>
+</html>
